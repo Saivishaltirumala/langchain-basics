@@ -34,9 +34,8 @@ from langchain_mcp_adapters.client import MultiServerMCPClient
 # This replaced the older AgentExecutor in LangChain 1.3+
 from langchain.agents import create_agent
 
-# Chat model — we use OpenAI here because tool-calling works
-# reliably with GPT models. Anthropic works too (see Option B).
-from langchain_openai import ChatOpenAI
+# Chat model — Anthropic Claude for tool-calling
+from langchain_anthropic import ChatAnthropic
 
 
 # --- 2. Define the async main function ----------------------
@@ -90,19 +89,11 @@ async def main():
 
     # --- 5. Create the chat model -----------------------------
 
-    # ── Option A: Anthropic (Claude) ─────────────────────────
-    from langchain_anthropic import ChatAnthropic
     llm = ChatAnthropic(
         model="claude-sonnet-4-20250514",
         temperature=0,             # 0 for factual tool-calling tasks
         max_tokens=1024,
     )
-
-    # ── Option B: OpenAI (GPT) ──────────────────────────────
-    # llm = ChatOpenAI(
-    #     model="gpt-4o-mini",       # fast and cheap, good at tool calling
-    #     temperature=0,
-    # )
 
     # --- 6. Create the agent ----------------------------------
     #
