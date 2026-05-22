@@ -63,3 +63,19 @@ Multi-step workflow using the LCEL pipe (`|`) operator. Generates a joke about a
 ```bash
 python 03_lcel_chain.py
 ```
+
+### 04 — MCP Agent (`04_mcp_agent.py`)
+
+Connects a LangChain agent to an external MCP (Model Context Protocol) weather server. The agent discovers tools at runtime, decides which to call, and answers weather questions using real forecast data.
+
+**Concepts covered:**
+- `MultiServerMCPClient` — connects to MCP servers and discovers tools dynamically
+- `create_agent` — builds a ReAct-style tool-calling loop (Reason → Act → Observe)
+- MCP stdio transport — communicating with a server via subprocess stdin/stdout
+- Full agent trace — seeing the LLM's reasoning, tool calls, and final answer
+
+**Requires:** Node.js (`npx`) for the weather MCP server.
+
+```bash
+python 04_mcp_agent.py
+```

@@ -1,6 +1,8 @@
+langchain
 langchain-anthropic
 langchain-openai
 langchain-xai
 langchain-huggingface
 langchain-groq
+langchain-mcp-adapters
 python-dotenv
