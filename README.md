@@ -48,3 +48,18 @@ Adds memory to a chat model so it remembers previous messages across turns. The 
 ```bash
 python 02_conversation_memory.py
 ```
+
+### 03 — LCEL Chains (`03_lcel_chain.py`)
+
+Multi-step workflow using the LCEL pipe (`|`) operator. Generates a joke about a topic, then translates it to Spanish — all in one pipeline.
+
+**Concepts covered:**
+- LCEL `|` operator — connecting components left-to-right like Unix pipes
+- `StrOutputParser` — extracts clean text from `AIMessage` objects
+- `RunnableLambda` — wraps any Python function into a pipeable component
+- Chaining two separate prompt→model→parser sequences into one pipeline
+- Running sub-chains independently vs the full pipeline in a single `.invoke()`
+
+```bash
+python 03_lcel_chain.py
+```
